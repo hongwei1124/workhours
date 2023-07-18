@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset
+				name="details"
+				label="Please enter your work hours."
+	>
+		<field
+				name="director_email"
+				type="list"
+				label="Director responsible for approving (1 only)"
+				description="Director email for the project"
+				size="100"
+				required="true"
+				default=""
+				>
+			<option value = "">Please select</option>
+			<option value = "commodore@bpyc.on.ca">commodore@bpyc.on.ca</option>
+			<option value = "vice-commodore@bpyc.on.ca">vice-commodore@bpyc.on.ca</option>
+			<option value = "rear-commodore@bpyc.on.ca">rear-commodore@bpyc.on.ca</option>
+			<option value = "secretary@bpyc.on.ca">secretary@bpyc.on.ca</option>
+			<option value = "treasurer@bpyc.on.ca">treasurer@bpyc.on.ca</option>
+			<option value = "house-management@bpyc.on.ca">house-management@bpyc.on.ca</option>
+			<option value = "maintenance@bpyc.on.ca">maintenance@bpyc.on.ca</option>
+			<option value = "social@bpyc.on.ca">social@bpyc.on.ca</option>
+			<option value = "harbourmaster@bpyc.on.ca">harbourmaster@bpyc.on.ca</option>
+			<option value = "bar.chair@bpyc.on.ca">bar.chair@bpyc.on.ca</option>			
+		</field>
+        <field 
+				name="hours_submitted" 
+				type="integer" 
+				label="hours worked"
+				description="hours worked"
+				required="true"
+				size="40" 
+				/>
+		<field 
+				name="start_datetime" 
+				type="calendar" 
+				label="start date time"
+				description="start date time"
+				class="input-medium" 
+				required="true" 
+				filter="user_utc" 
+				format="%Y-%m-%d %H:%i:%s"
+				singleheader="true" 
+				showtime="true" 
+				timeformat="12" 
+				todaybutton="true" 
+				weeknumbers="true"
+				filltable="true" minyear="-3" maxyear="5" 
+				/>
+		<field 
+				name="complete_datetime" 
+				type="calendar" 
+				label="complete date time"
+				description="complete date time"
+				class="input-medium" 
+				filter="user_utc" 
+				format="%Y-%m-%d %H:%i:%s"
+				singleheader="true" 
+				showtime="true" 
+				timeformat="12" 
+				todaybutton="true" 
+				weeknumbers="true"
+				filltable="true" minyear="-3" maxyear="5" 
+				/>
+    </fieldset>
+</form>
