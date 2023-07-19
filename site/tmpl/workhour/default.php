@@ -35,7 +35,7 @@ if(empty(this->form)){
 			<legend><?php echo 'Submit work hour' ?></legend>
 			<div class="row-fluid">
 				<div class="span6">
-					<?php echo $this->form->renderFieldset('details');  ?>
+					<?php echo $this->workhour->renderFieldset('details');  ?>
 				</div>
 			</div>
 		</fieldset>

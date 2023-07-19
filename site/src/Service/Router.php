@@ -58,6 +58,9 @@ class Router extends RouterView
         $form = new RouterViewConfiguration('form');
         $this->registerView($form);
 
+        $workhour = new RouterViewConfiguration('workhour');
+        $this->registerView($workhour);
+
         parent::__construct($app, $menu);
 
         $this->attachRule(new MenuRules($this));
