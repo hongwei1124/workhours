@@ -57,6 +57,6 @@ class HtmlView extends BaseHtmlView
 	 */
 	protected function setDocument() 
 	{
-        $this->document->setTitle('Submit work hour'));
+        $this->document->setTitle('Submit work hour');
 	}
 }

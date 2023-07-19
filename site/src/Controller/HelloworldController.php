@@ -352,12 +352,9 @@ class HelloworldController extends FormController
         
 		// notify the administrator that a new helloworld message has been added on the front end
         
-        }
-        
 		$this->setRedirect(
 				$currentUri,
-				'Work hour submitted!')
-				);
+				'Work hour submitted!');
             
 		return true;
         

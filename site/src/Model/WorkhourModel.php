@@ -51,7 +51,7 @@ class WorkhourModel extends AdminModel
 	 *
 	 * @since   1.6
 	 */
-	public function getForm($data = array(), $loadData = true)
+	public function getWorkhour($data = array(), $loadData = true)
 	{
 		// Get the form.
 		$form = $this->loadForm(
