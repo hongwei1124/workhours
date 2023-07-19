@@ -14,6 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\MVC\Model\AdminModel;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Log\Log;
 
 
 /**
@@ -53,6 +54,8 @@ class WorkhourModel extends AdminModel
 	 */
 	public function getWorkhour($data = array(), $loadData = true)
 	{
+		Log::add('Here in getWorkhour',LOG::DEBUG,'workhour');
+		
 		// Get the form.
 		$form = $this->loadForm(
 			'com_helloworld.workhour',
@@ -63,9 +66,37 @@ class WorkhourModel extends AdminModel
 			)
 		);
 
+		Log::add('Here in getWorkhour after get form',LOG::DEBUG,'workhour');
 		if (empty($form))
 		{
 			$errors = $this->getErrors();
+			Log::add('Here in getWorkhour in empty form',LOG::ERROR,'workhour');
+			throw new \Exception(implode("\n", $errors), 500);
+		}
+
+		return $form;
+	}
+	
+	//not sure if getForm, or getWorkhour method
+	public function getForm($data = array(), $loadData = true)
+	{
+		Log::add('Here in getForm',LOG::DEBUG,'workhour');
+		// Get the form.
+		$form = $this->loadForm(
+			'com_helloworld.workhour',
+			'submit-form',
+			array(
+				'control' => 'jform',
+				'load_data' => $loadData
+			)
+		);
+		
+		Log::add('Here in getForm after form',LOG::DEBUG,'workhour');
+
+		if (empty($form))
+		{
+			$errors = $this->getErrors();
+			Log::add('Here in getForm of empty form',LOG::ERROR,'workhour');
 			throw new \Exception(implode("\n", $errors), 500);
 		}
 

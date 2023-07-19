@@ -8,6 +8,7 @@ use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Response\JsonResponse;
 use Joomla\CMS\Session\Session;
+use Joomla\CMS\Log\Log;
 
 class DisplayController extends BaseController {
     
@@ -30,6 +31,7 @@ class DisplayController extends BaseController {
 			'lang'             => 'CMD',
 		);
 		
+		Log::add('Display Controller, view:'.$viewName,LOG::DEBUG,'workhour');
 		parent::display($cachable, $safeurlparams);
 
         return $this;
