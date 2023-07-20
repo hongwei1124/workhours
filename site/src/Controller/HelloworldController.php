@@ -339,10 +339,23 @@ class HelloworldController extends FormController
 			$app->setUserState('com_helloworld.edit.helloworld.workhour', $validData);
 
 			// Redirect back to the edit screen.
-			$this->setError(Text::sprintf('JLIB_APPLICATION_ERROR_SAVE_FAILED', $model->getError()));
-			$this->setMessage($this->getError(), 'error');
+            $errors = $model->getErrors();
+            // Display up to three validation messages to the user.
+            for ($i = 0, $n = count($errors); $i < $n && $i < 3; $i++)
+            {
+                if ($errors[$i] instanceof \Exception)
+                {
+                    $app->enqueueMessage($errors[$i]->getMessage(), 'error');
+                    Log::add($errors[$i]->getMessage(),Log::ERROR,'workhour');
+                }
+                else
+                {
+                    $app->enqueueMessage($errors[$i], 'warning');
+                    Log::add($errors[$i],Log::ERROR,'workhour');
+                }
+            }
 
-			$this->setRedirect($currentUri);
+			$this->setRedirect($currentUri,'Work hour submit error!');
 
 			return false;
 		}

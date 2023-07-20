@@ -12,6 +12,7 @@ use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\Versioning\VersionableTableInterface;
 use Joomla\CMS\Tag\TaggableTableInterface;
 use Joomla\CMS\Tag\TaggableTableTrait;
+use Joomla\CMS\Log\Log;
 
 \defined('_JEXEC') or die;
 
@@ -20,7 +21,7 @@ use Joomla\CMS\Tag\TaggableTableTrait;
  *
  * @since  1.0
  **/
-class WorkhourTable extends Nested implements VersionableTableInterface, TaggableTableInterface
+class WorkhourTable extends Table implements VersionableTableInterface, TaggableTableInterface
 {
     use TaggableTableTrait;
     
@@ -36,6 +37,11 @@ class WorkhourTable extends Nested implements VersionableTableInterface, Taggabl
     
     public function bind($array, $ignore = '')
 	{
+        Log::add('check data for bind', Log::DEBUG, 'workhour');
+        foreach ($array as $key => $value) {
+            Log::add('check data for bind, key='.$key.' value='.$value, Log::DEBUG, 'workhour');
+        }
+
 		return parent::bind($array, $ignore);
 	}
     
@@ -45,17 +51,18 @@ class WorkhourTable extends Nested implements VersionableTableInterface, Taggabl
         // and these fields aren't already set
         $date = date('Y-m-d h:i:s');
         $userid = Factory::getApplication()->getIdentity()->get('id');
+        Log::add('check data for start_datetime:' . $this->start_datetime, Log::DEBUG, 'workhour');
         if (!$this->id) {
             // new record
-            if (empty($this->created_by)) {
-                $this->created_by = $userid;
-                $this->created    = $date;
-            }
+            $this->user_id = $userid;
+            $this->created_by = $userid;
+            $this->created    = $date;
+
         }else{
 			$this->updated_by = $userid;
             $this->last_updated    = $date;
 		}
-
+        Log::add('store data for:' . $userid, Log::DEBUG, 'workhour');
         return parent::store();
     }
     

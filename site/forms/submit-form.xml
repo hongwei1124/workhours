@@ -32,6 +32,9 @@
 				description="hours worked"
 				required="true"
 				size="1"
+				first="1"
+				last="100"
+				step="1"
 				/>
 		<field 
 				name="start_datetime" 
@@ -64,5 +67,6 @@
 				weeknumbers="true"
 				filltable="true" minyear="-1" maxyear="2"
 				/>
+		<field name="work_desc" type="text" default="" label="Work description" description="" size="4" />
     </fieldset>
 </form>
