@@ -47,11 +47,11 @@ class HtmlView extends BaseHtmlView
 		$this->workhour = $this->get('Workhour');
 		$this->form = $this->get('Form');
 		
-		if(empty(this->workhour)){
+		if(empty($this->workhour)){
 			LOG::add('Workhour view has form:workhour empty',LOG::ERROR,'workhour');
 		}
 		
-		if(empty(this->form)){
+		if(empty($this->form)){
 			LOG::add('Workhour view has form:form empty',LOG::ERROR,'workhour');
 		}
 		

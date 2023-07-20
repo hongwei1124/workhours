@@ -18,13 +18,15 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Log\Log;
 
-if(empty(this->workhour)){
+if(empty($this->workhour)){
 			LOG::add('Workhour tmpl has form:workhour empty',LOG::ERROR,'workhour');
 }
 		
-if(empty(this->form)){
+if(empty($this->form)){
 	LOG::add('Workhour tmpl has form:form empty',LOG::ERROR,'workhour');
 }
+
+$this->document->getWebAssetManager()->useScript('com_helloworld.validate-greeting');
 
 ?>
 <form action="<?php echo Route::_('index.php?option=com_helloworld&view=workhour'); ?>"

@@ -9,7 +9,7 @@
 				type="list"
 				label="Director responsible for approving (1 only)"
 				description="Director email for the project"
-				size="100"
+				size="1"
 				required="true"
 				default=""
 				>
@@ -31,7 +31,7 @@
 				label="hours worked"
 				description="hours worked"
 				required="true"
-				size="40" 
+				size="1"
 				/>
 		<field 
 				name="start_datetime" 
@@ -41,13 +41,13 @@
 				class="input-medium" 
 				required="true" 
 				filter="user_utc" 
-				format="%Y-%m-%d %H:%i:%s"
+				format="%Y-%m-%d %H:%M"
 				singleheader="true" 
 				showtime="true" 
 				timeformat="12" 
 				todaybutton="true" 
 				weeknumbers="true"
-				filltable="true" minyear="-3" maxyear="5" 
+				filltable="true" minyear="-1" maxyear="2"
 				/>
 		<field 
 				name="complete_datetime" 
@@ -56,13 +56,13 @@
 				description="complete date time"
 				class="input-medium" 
 				filter="user_utc" 
-				format="%Y-%m-%d %H:%i:%s"
+				format="%Y-%m-%d %H:%M"
 				singleheader="true" 
 				showtime="true" 
 				timeformat="12" 
 				todaybutton="true" 
 				weeknumbers="true"
-				filltable="true" minyear="-3" maxyear="5" 
+				filltable="true" minyear="-1" maxyear="2"
 				/>
     </fieldset>
 </form>
