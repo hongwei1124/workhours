@@ -32,8 +32,8 @@ class WorkhoursModel extends ListModel
         $user_id = $user->get("id");
         $today = Date::getInstance();
 
-        $month = $this->getMonth($today);
-        $year = $this->getYear($today);
+        $month = $today->format('m');
+        $year = $today->format('Y');
 
         if ($month < 11) {
             $year = $year -1;
@@ -52,13 +52,4 @@ class WorkhoursModel extends ListModel
 		return $query;
 	}
 
-    private function getYear($pdate) {
-        $date = DateTime::createFromFormat('Y-m-d', $pdate);
-        return $date->format('Y');
-    }
-
-    private function getMonth($pdate) {
-        $date = DateTime::createFromFormat('Y-m-d', $pdate);
-        return $date->format('m');
-    }
 }
