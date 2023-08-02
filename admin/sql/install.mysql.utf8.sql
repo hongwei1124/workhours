@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `#__workhour` (
 	`work_desc` VARCHAR(250),
 	`approve_comment` VARCHAR(250),
 	`start_datetime` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
-	`comlete_datetime` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+	`complete_datetime` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
 	`hours_submitted` INT(4) NOT NULL DEFAULT '0',
 	`hours_approved` INT(4) NOT NULL DEFAULT '0',
 	`approved` TINYINT(1) NOT NULL DEFAULT '0',

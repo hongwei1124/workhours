@@ -64,6 +64,9 @@ class Router extends RouterView
         $workhours = new RouterViewConfiguration('workhours');
         $this->registerView($workhours);
 
+        $approvals = new RouterViewConfiguration('approvals');
+        $this->registerView($approvals);
+
         parent::__construct($app, $menu);
 
         $this->attachRule(new MenuRules($this));

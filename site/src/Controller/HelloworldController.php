@@ -53,7 +53,7 @@ class HelloworldController extends FormController
         // set up the redirect back to the same form
         $this->setRedirect(
             (string)Uri::getInstance(), 
-            Text::_('COM_HELLOWORLD_ADD_CANCELLED')
+            'Action Cancelled.'
 		);
     }
     
