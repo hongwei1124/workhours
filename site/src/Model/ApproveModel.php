@@ -86,6 +86,7 @@ class ApproveModel extends AdminModel
     {
         $jinput = Factory::getApplication()->input;
         $id     = $jinput->get('id', 1, 'INT');
+        Log::add('Here in approve to get work id: '.$id, LOG::ERROR,'workhour');
         if (!isset($this->item) || !is_null($id))
         {
             $db    = $this->getDatabase();

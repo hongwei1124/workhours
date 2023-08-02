@@ -372,6 +372,62 @@ class HelloworldController extends FormController
 		return true;
         
     }
+
+    public function approve($key = null, $urlVar = null)
+    {
+        // Check for request forgeries.
+        Session::checkToken();
+
+        $app = Factory::getApplication();
+        $input = $app->input;
+        $model = $this->getModel('approve');
+
+        // Get the current URI to set in redirects. As we're handling a POST,
+        // this URI comes from the <form action="..."> attribute in the layout file above
+        $currentUri = (string)Uri::getInstance();
+        $currentUser = $app->getIdentity();
+
+        // get the data from the HTTP POST request
+        $data  = $input->get('jform', array(), 'array');
+
+        //massage data
+        $data->approved_by = $currentUser->get('id');
+        if ($data->approved == 2) {
+            $data->hours_approved = 0;
+        }
+
+        // Attempt to save the data.
+        if (!$model->save($data))
+        {
+            // Redirect back to the edit screen.
+            $errors = $model->getErrors();
+            // Display up to three validation messages to the user.
+            for ($i = 0, $n = count($errors); $i < $n && $i < 3; $i++)
+            {
+                if ($errors[$i] instanceof \Exception)
+                {
+                    $app->enqueueMessage($errors[$i]->getMessage(), 'error');
+                    Log::add($errors[$i]->getMessage(),Log::ERROR,'workhour');
+                }
+                else
+                {
+                    $app->enqueueMessage($errors[$i], 'warning');
+                    Log::add($errors[$i],Log::ERROR,'workhour');
+                }
+            }
+
+            $this->setRedirect($currentUri,'Work hour approve error!');
+
+            return false;
+        }
+
+        $this->setRedirect(
+            $currentUri,
+            'Work hour processing done!');
+
+        return true;
+
+    }
     
     public function getModel($name = '', $prefix = '', $config = array('ignore_request' => true))
 	{

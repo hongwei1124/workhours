@@ -28,6 +28,7 @@ class HtmlView extends BaseHtmlView
 {
 	protected $approve = null;
     protected $item = null;
+    protected $work_id = null;
 	protected $canDo;
 
 	/**
@@ -46,6 +47,8 @@ class HtmlView extends BaseHtmlView
 
         //get the data
         $this->item = $this->get('Item');
+
+        $this->work_id = $this->item->id;
 		
 		if(empty($this->approve)){
 			LOG::add('Approve view has form:approve empty',LOG::ERROR,'workhour');
