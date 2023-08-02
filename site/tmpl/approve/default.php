@@ -23,7 +23,7 @@ use Joomla\CMS\Log\Log;
 $this->document->getWebAssetManager()->useScript('com_helloworld.validate-greeting');
 
 ?>
-<form action="<?php echo Route::_('index.php?option=com_helloworld&view=approve&id='.$this->work_id); ?>"
+<form action="<?php echo Route::_('index.php?option=com_helloworld&view=approvals'); ?>"
     method="post" name="adminForm" id="adminForm" class="form-validate" enctype="multipart/form-data">
 
 	<div class="form-horizontal">

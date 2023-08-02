@@ -380,7 +380,7 @@ class HelloworldController extends FormController
 
         $app = Factory::getApplication();
         $input = $app->input;
-        $model = $this->getModel('approve');
+        $model = $this->getModel('workhour');
 
         // Get the current URI to set in redirects. As we're handling a POST,
         // this URI comes from the <form action="..."> attribute in the layout file above
