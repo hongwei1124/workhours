@@ -34,7 +34,7 @@ $this->document->getWebAssetManager()->useScript('com_helloworld.validate-greeti
 
 	<div class="form-horizontal">
 		<fieldset class="adminform">
-			<legend><?php echo 'Submit work hour' ?></legend>
+			<legend><?php echo 'Approve work hour' ?></legend>
 			<div class="row-fluid">
 				<div class="span6">
 					<?php echo $this->workhour->renderFieldset('details');  ?>

@@ -47,7 +47,7 @@ class ApprovalsModel extends ListModel
         a.start_datetime as start_datetime, a.complete_datetime as complete_datetime,  a.hours_submitted as hours_submitted, a.hours_submitted as hours_approved,
         a.approved as approved')
 			->from($db->quoteName('#__workhour', 'a'))
-            ->where('a.approved == 0 order by a.director_email, a.user_id, a.start_datetime');
+            ->where('a.approved = 0 order by a.director_email, a.user_id, a.start_datetime');
 
 		return $query;
 	}

@@ -6,7 +6,7 @@
  * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-namespace Robbie\Component\Helloworld\Site\View\Approve;
+namespace Robbie\Component\Helloworld\Site\View\Workhour;
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -26,10 +26,8 @@ use Joomla\CMS\Log\Log;
  */
 class HtmlView extends BaseHtmlView
 {
-
-//test if workhour/form is the correct one
-	protected $form = null;
-	protected $workhour = null;
+	protected $approve = null;
+    protected $item = null;
 	protected $canDo;
 
 	/**
@@ -44,18 +42,23 @@ class HtmlView extends BaseHtmlView
 		$app = Factory::getApplication(); 
         
         // Get the form to display
-		$this->workhour = $this->get('Workhour');
-		$this->form = $this->get('Form');
+		$this->approve = $this->get('Approve');
+
+        //get the data
+        $this->item = $this->get('Item');
 		
-		if(empty($this->workhour)){
-			LOG::add('Workhour view has form:workhour empty',LOG::ERROR,'workhour');
+		if(empty($this->approve)){
+			LOG::add('Approve view has form:approve empty',LOG::ERROR,'workhour');
 		}
 		
-		if(empty($this->form)){
-			LOG::add('Workhour view has form:form empty',LOG::ERROR,'workhour');
+		if(empty($this->item)){
+			LOG::add('Approve view has data item:item empty',LOG::ERROR,'workhour');
 		}
 		
-		LOG::add('Workhour view has view name:'.$tpl,LOG::DEBUG,'workhour');
+		LOG::add('Approve view has view name:'.$tpl,LOG::DEBUG,'workhour');
+
+        //bind the data
+        $this->approve->bind($this->item);
 
 		// Call the parent display to display the layout file
 		parent::display($tpl);

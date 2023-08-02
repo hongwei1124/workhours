@@ -67,6 +67,9 @@ class Router extends RouterView
         $approvals = new RouterViewConfiguration('approvals');
         $this->registerView($approvals);
 
+        $approve = new RouterViewConfiguration('approve');
+        $this->registerView($approve);
+
         parent::__construct($app, $menu);
 
         $this->attachRule(new MenuRules($this));
