@@ -51,6 +51,6 @@ $this->document->getWebAssetManager()->useScript('com_helloworld.validate-greeti
 	</div>
 
 	<input type="hidden" name="task" />
-    <input type="hidden" name="modelname" value="approve"/>
+    <input type="hidden" name="modelname" value="workhour"/>
 	<?php echo HTMLHelper::_('form.token'); ?>
 </form>
