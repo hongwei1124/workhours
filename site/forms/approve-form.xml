@@ -6,7 +6,7 @@
 	>
 		<field
 				name="id"
-				type="integer"
+				type="string"
 				label="Work id"
 				description="work id"
 				size="1"
@@ -39,8 +39,8 @@
 		<field
 				name="work_desc"
 				type="string"
-				label="Applicant's name"
-				description="Applicant's name"
+				label="Work Description"
+				description="Work Description"
 				size="1"
 				required="true"
 				readonly = "true"

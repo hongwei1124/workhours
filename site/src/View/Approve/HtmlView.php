@@ -6,7 +6,7 @@
  * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-namespace Robbie\Component\Helloworld\Site\View\Workhour;
+namespace Robbie\Component\Helloworld\Site\View\Approve;
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -40,8 +40,8 @@ class HtmlView extends BaseHtmlView
 	 */
 	public function display($tpl = null)
 	{
-		$app = Factory::getApplication(); 
-        
+		$app = Factory::getApplication();
+        Log::add('Here in approve view to display', LOG::ERROR,'approve');
         // Get the form to display
 		$this->approve = $this->get('Approve');
 

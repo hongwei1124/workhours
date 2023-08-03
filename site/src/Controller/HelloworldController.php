@@ -391,9 +391,9 @@ class HelloworldController extends FormController
         $data  = $input->get('jform', array(), 'array');
 
         //massage data
-        $data->approved_by = $currentUser->get('id');
-        if ($data->approved == 2) {
-            $data->hours_approved = 0;
+        $data['approved_by'] = $currentUser->get('id');
+        if ($data['approved'] == 2) {
+            $data['hours_approved'] = 0;
         }
 
         // Attempt to save the data.

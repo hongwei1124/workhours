@@ -78,6 +78,31 @@ class ApproveModel extends AdminModel
 		return $form;
 	}
 
+    public function getForm($data = array(), $loadData = true)
+    {
+        Log::add('Here in getForm',LOG::DEBUG,'workhour');
+        // Get the form.
+        $form = $this->loadForm(
+            'com_helloworld.approve',
+            'approve-form',
+            array(
+                'control' => 'jform',
+                'load_data' => $loadData
+            )
+        );
+
+        Log::add('Here in getForm after form',LOG::DEBUG,'workhour');
+
+        if (empty($form))
+        {
+            $errors = $this->getErrors();
+            Log::add('Here in getForm of empty form',LOG::ERROR,'workhour');
+            throw new \Exception(implode("\n", $errors), 500);
+        }
+
+        return $form;
+    }
+
     /**
      * Get the message
      * @return object The message to be displayed to the user

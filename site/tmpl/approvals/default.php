@@ -14,10 +14,10 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\User\UserFactoryInterface;
 use Joomla\CMS\Date\Date;
 use Joomla\CMS\Log\Log;
+use Joomla\CMS\Router\Route;
 
 $user = Factory::getApplication()->getIdentity();
 $userId = $user->get('id');
-$total_approved = 0;
 ?>
 
 <table class="table table-striped table-hover">
@@ -66,23 +66,5 @@ $total_approved = 0;
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Total Approved:</td>
-            <td><?php echo $total_approved; ?></td>
-            <td></td>
-        </tr>
     </tbody>
 </table>

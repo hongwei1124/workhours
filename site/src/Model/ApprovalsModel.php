@@ -43,7 +43,7 @@ class ApprovalsModel extends ListModel
         Log::add('Date condition: ' . $dateCondition, Log::DEBUG, 'workhour');
 
         // Create the base select statement.
-        $query->select('a.id as id, a.director_email as director_email, a.work_desc as work_desc, 
+        $query->select('a.id as id, a.user_id as user_id, a.director_email as director_email, a.work_desc as work_desc, 
         a.start_datetime as start_datetime, a.complete_datetime as complete_datetime,  a.hours_submitted as hours_submitted, a.hours_submitted as hours_approved,
         a.approved as approved')
 			->from($db->quoteName('#__workhour', 'a'))

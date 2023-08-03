@@ -38,7 +38,9 @@ $total_approved = 0;
                     <td><?php echo $row->director_email; ?></td>
                     <td><?php echo $row->hours_submitted; ?></td>
                     <td><?php echo $row->hours_approved;
-                        $total_approved += $row->hours_approved;
+                        if($row->approved == 1) {
+                            $total_approved += $row->hours_approved;
+                        }
                         ?>
                     </td>
                     <td><?php
