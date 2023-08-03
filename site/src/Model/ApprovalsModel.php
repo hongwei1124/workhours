@@ -28,15 +28,13 @@ class ApprovalsModel extends ListModel
         // Initialize variables.
         $db = $this->getDatabase();
         $query = $db->getQuery(true);
-        $user = Factory::getApplication()->getIdentity();
-        $user_id = $user->get("id");
         $today = Date::getInstance();
 
         $month = $today->format('m');
         $year = $today->format('Y');
 
         if ($month < 11) {
-            $year = $year -1;
+            $year = $year - 1;
         }
 
         $dateCondition = ' and a.start_datetime > \''.$year.'-10-31\'';

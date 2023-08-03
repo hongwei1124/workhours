@@ -278,13 +278,9 @@ class HelloworldController extends FormController
 		// Get the current URI to set in redirects. As we're handling a POST, 
 		// this URI comes from the <form action="..."> attribute in the layout file above
 		$currentUri = (string)Uri::getInstance();
-        $currentUser = $app->getIdentity();
         
 		// get the data from the HTTP POST request
 		$data  = $input->get('jform', array(), 'array');
-        
-		// set up context for saving form data
-		//$context = "$this->option.edit.$this->context";
         
 		// Validate the posted data.
 		// First we need to set up an instance of the form ...
@@ -385,7 +381,7 @@ class HelloworldController extends FormController
         // Get the current URI to set in redirects. As we're handling a POST,
         // this URI comes from the <form action="..."> attribute in the layout file above
         $currentUri = (string)Uri::getInstance();
-        $currentUser = $app->getIdentity();
+        $currentUser = Factory::getApplication()->getIdentity();
 
         // get the data from the HTTP POST request
         $data  = $input->get('jform', array(), 'array');

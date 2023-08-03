@@ -29,8 +29,8 @@
 		<field
 				name="applicant_name"
 				type="string"
-				label="Applicant's name"
-				description="Applicant's name"
+				label="Applicant name"
+				description="Applicant name"
 				size="1"
 				required="true"
 				readonly = "true"
@@ -50,8 +50,8 @@
         <field 
 				name="hours_submitted" 
 				type="integer" 
-				label="hours worked"
-				description="hours worked"
+				label="hours submitted"
+				description="hours submitted"
 				required="true"
 				readonly = "true"
 				size="1"
@@ -62,8 +62,8 @@
 		<field
 				name="hours_approved"
 				type="integer"
-				label="hours worked"
-				description="hours worked"
+				label="hours approved"
+				description="hours approved"
 				required="true"
 				size="1"
 				first="1"
@@ -90,10 +90,10 @@
 				readonly = "true"
 				default=""
 		/>
-		<field name="approved" type="radio" default="1" label="Approve/Reject?" description="" class="btn-group">
+		<field name="approved" type="radio" default="1" label="Approve/Reject?" description="Please take action">
 			<option value="1">Approve</option>
 			<option value="2">Reject</option>
 		</field>
-		<field name="approve_comment" type="text" default="" label="Comment" description="" size="4" />
+		<field name="approve_comment" type="text" default="" label="Comment" description="Approve/Reject Comment" size="4" />
     </fieldset>
 </form>

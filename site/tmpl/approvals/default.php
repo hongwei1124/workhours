@@ -11,13 +11,14 @@
 defined('_JEXEC') or die('Restricted Access');
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\User\UserFactoryInterface;
-use Joomla\CMS\Date\Date;
-use Joomla\CMS\Log\Log;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\User\UserFactoryInterface;
 
 $user = Factory::getApplication()->getIdentity();
 $userId = $user->get('id');
+
+$container = Factory::getContainer();
+$userFactory = $container->get(UserFactoryInterface::class);
 ?>
 
 <table class="table table-striped table-hover">
@@ -41,8 +42,8 @@ $userId = $user->get('id');
                     <td><?php echo $row->id; ?></td>
                     <td><?php echo $row->director_email; ?></td>
                     <td><?php
-                        $worker = Factory::getContainer()->get(UserFactoryInterface::class)->loadUserById($row->user_id);
-                        echo $worker->name;
+                        $worker = $userFactory->loadUserById($row->user_id);
+                        echo $worker->get('name');
                         ?>
                     </td>
                     <td><?php echo $row->work_desc; ?></td>

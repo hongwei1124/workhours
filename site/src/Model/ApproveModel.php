@@ -15,6 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 use Joomla\CMS\MVC\Model\AdminModel;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Log\Log;
+use Joomla\CMS\User\UserFactoryInterface;
 
 
 /**
@@ -117,7 +118,7 @@ class ApproveModel extends AdminModel
             $db    = $this->getDatabase();
             $query = $db->getQuery(true);
 
-            $query->select('a.id as id, a.director_email as director_email, a.work_desc as work_desc, 
+            $query->select('a.id as id, a.user_id as user_id, a.director_email as director_email, a.work_desc as work_desc, 
             a.start_datetime as start_datetime, a.complete_datetime as complete_datetime,  a.hours_submitted as hours_submitted, a.hours_submitted as hours_approved,
             1 as approved')
                 ->from($db->quoteName('#__workhour', 'a'))
@@ -127,6 +128,13 @@ class ApproveModel extends AdminModel
             $db->setQuery((string)$query);
 
             $this->item = $db->loadObject();
+
+            //set applicant name
+            $container = Factory::getContainer();
+            $userFactory = $container->get(UserFactoryInterface::class);
+            $applicant = $userFactory->loadUserById($this->item->user_id);
+
+            $this->item->applicant_name = $applicant->get('name');
         }
 
         return $this->item;

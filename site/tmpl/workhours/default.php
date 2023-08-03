@@ -10,10 +10,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
 
-use Joomla\CMS\Factory;
-
-$user = Factory::getApplication()->getIdentity();
-$userId = $user->get('id');
 $total_approved = 0;
 ?>
 
@@ -71,9 +67,9 @@ $total_approved = 0;
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
             <td>Total Approved:</td>
             <td><?php echo $total_approved; ?></td>
+            <td></td>
             <td></td>
         </tr>
     </tbody>
