@@ -30,6 +30,7 @@ class ApprovalsModel extends ListModel
         $query = $db->getQuery(true);
         $user = Factory::getApplication()->getIdentity();
         $user_id = $user->get("id");
+        $groups = $user->groups;
         $today = Date::getInstance();
 
         $month = $today->format('m');
@@ -47,9 +48,32 @@ class ApprovalsModel extends ListModel
         a.start_datetime as start_datetime, a.complete_datetime as complete_datetime,  a.hours_submitted as hours_submitted, a.hours_submitted as hours_approved,
         a.approved as approved')
 			->from($db->quoteName('#__workhour', 'a'))
-            ->where('a.approved = 0 order by a.director_email, a.user_id, a.start_datetime');
+            ->where('a.approved = 0 '.$this->getDirectorEmails($groups).' order by a.director_email, a.user_id, a.start_datetime');
 
 		return $query;
 	}
+
+    /**
+     * This function needs to change if there is a change in user group settings, like new user group to director etc.
+     * @param $groups user's groups.
+     * @return director email of the user groups
+     */
+    private function getDirectorEmails($groups)
+    {
+        $directorEmails = ' and director_email in (';
+        //get a list of group ids for all the committee,
+        $comandore = 1;
+        if (in_array($comandore, $groups, true)) {
+            $directorEmails = $directorEmails.'\'comandore@bpyc.on.ca\',';
+        }
+
+        //remove the last ','
+        $directorEmails = rtrim($directorEmails,',');
+
+        //close the bracket
+        return $directorEmails.')';
+
+
+    }
 
 }
