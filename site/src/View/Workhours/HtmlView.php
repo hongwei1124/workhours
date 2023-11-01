@@ -39,7 +39,7 @@ class HtmlView extends BaseHtmlView {
         $this->setDocument();
     }
     
-    protected function setDocument() 
+    public function setDocument()
 	{
 		//$document = Factory::getApplication()->getDocument();
 		$this->document->setTitle('Workhour list');

@@ -129,6 +129,6 @@ CREATE TABLE IF NOT EXISTS `#__workhour` (
   AUTO_INCREMENT =0
   DEFAULT CHARSET =utf8; 
   
- CREATE INDEX IF NOT EXISTS `wh_userindex` ON `#__workhour` (`user_id`);
- CREATE INDEX IF NOT EXISTS `wh_directorindex` ON `#__workhour` (`director_email`);
- CREATE INDEX IF NOT EXISTS `wh_approveindex` ON `#__workhour` (`approved`);
+ -- CREATE INDEX IF NOT EXISTS `wh_userindex` ON `#__workhour` (`user_id`);
+ -- CREATE INDEX IF NOT EXISTS `wh_directorindex` ON `#__workhour` (`director_email`);
+ -- CREATE INDEX IF NOT EXISTS `wh_approveindex` ON `#__workhour` (`approved`);
